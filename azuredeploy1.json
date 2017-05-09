@@ -8,7 +8,9 @@
         "variables": {
         "apiVersion": "2015-06-15"
 },
- 
+    },
+
+ "resources" : [
  {
                 "type": "Microsoft.Network/networkSecurityGroups",
                 "name": "[parameters('networkSecurityGroups_name')]",
@@ -43,4 +45,9 @@
                             }
                         }
                     ]
+  
                 },
+                "dependsOn": []
+ }
+ ]
+ 
