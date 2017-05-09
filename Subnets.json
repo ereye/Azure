@@ -25,7 +25,9 @@
             "apiVersion": "[variables('apiVersion')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[resourceGroup().location]",
+            "name": "[variables('vnet').name]",
             "properties": {
+                "addressSpace":"[variables('vnet').addressPrefix]",
                 "subnets": [
                     {
                         "name": "[variables('subnet1').name]",
