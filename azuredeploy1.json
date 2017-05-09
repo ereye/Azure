@@ -1,0 +1,46 @@
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "networkSecurityGroups_name": {
+            "defaultValue": "nsgs",
+            "type": "String"
+        },
+        "variables": {
+        "apiVersion": "2015-06-15"
+},
+ 
+ {
+                "type": "Microsoft.Network/networkSecurityGroups",
+                "name": "[parameters('networkSecurityGroups_name')]",
+                "apiVersion": "[variables('apiVersion')]",
+                "location": "westeurope",
+                "properties": {
+                    "securityRules": [
+                        {
+                            "name": "web",
+                            "properties": {
+                                "protocol": "TCP",
+                                "sourcePortRange": "*",
+                                "destinationPortRange": "80",
+                                "sourceAddressPrefix": "*",
+                                "destinationAddressPrefix": "*",
+                                "access": "Allow",
+                                "priority": 100,
+                                "direction": "Inbound"
+                            }
+                        },
+                        {
+                            "name": "ssh",
+                            "properties": {
+                                "protocol": "TCP",
+                                "sourcePortRange": "*",
+                                "destinationPortRange": "22",
+                                "sourceAddressPrefix": "*",
+                                "destinationAddressPrefix": "*",
+                                "access": "Allow",
+                                "priority": 110,
+                                "direction": "Inbound"
+                            }
+                        }
+                    ]
+                },
