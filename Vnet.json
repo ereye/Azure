@@ -7,8 +7,8 @@
             "addressPrefix": "10.4.0.0/18"
         },
         "apiVersion": "2015-06-15",
-        "sharedBaseUrl" : "https://raw.githubusercontent.com/ereye/Azure/master/Subnets.json"  
-         },
+        "sharedBaseUrl": "https://raw.githubusercontent.com/ereye/Azure/master/Subnets.json"
+    },
     "resources": [
         {
             "apiVersion": "[variables('apiVersion')]",
@@ -20,23 +20,34 @@
                     "addressPrefixes": [
                         "[variables('vnet').addressPrefix]"
                     ]
-                }
+                },
+            
+                "subnets": [
+                    {
+                       }                     
+                ],
+                  "dependsOn": [
+                            "concat(Microsoft.Resources/deployments/',subnets"
+                        ]
             }
         },
-
-        {"apiVersion": "2015-01-01",
-      "name": "subnets",
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('vnet').name)]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('sharedBaseUrl')]",
-          "contentVersion": "1.0.0.0"
-        }
-        }
-    }
-    ]
-}
+                
+                    {
+                        "apiVersion": "2015-01-01",
+                        "name": "subnets",
+                        "type": "Microsoft.Resources/deployments",
+                        "dependsOn": [
+                            "[concat('Microsoft.Network/virtualNetworks/', variables('vnet').name)]"
+                        ],
+                        "properties": {
+                            "mode": "Incremental",
+                            "templateLink": {
+                                "uri": "[variables('sharedBaseUrl')]",
+                                "contentVersion": "1.0.0.0"
+                            }
+                        }
+                    }
+        
+            
+                ]
+            }
