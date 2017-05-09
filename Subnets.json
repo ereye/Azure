@@ -18,7 +18,8 @@
             "name": "back",
             "subnet3Prefix": "10.4.3.0/24"
         },
-        "apiVersion": "2016-06-15",
+        "apiVersion": "2016-06-15"
+    },
         "resources": [
             {
                 "apiVersion": "[variables('apiVersion')]",
