@@ -7,7 +7,7 @@
             "addressPrefix": "10.4.0.0/18"
         },
         "apiVersion": "2015-06-15",
-        "sharedBaseUrl" : "https://github.com/ereye/Azure",
+        "sharedBaseUrl" : "https://github.com/ereye/Azure/",
         "subnettemplate": "[concat(variables('sharedBaseUrl'),'Subnets.json')]"
     },
     "resources": [
