@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "vnet": {
+            "name": "vnet",
+            "addressPrefix": "10.4.0.0/18"
+        },
+        "subnet1": {
+            "name": "front",
+            "subnet1Prefix": "10.4.1.0/24"
+        },
+        "subnet2": {
+            "name": "api",
+            "subnet2Prefix": "10.4.2.0/24"
+        },
+        "subnet3": {
+            "name": "back",
+            "subnet3Prefix": "10.4.3.0/24"
+        },
+        "apiVersion": "2016-06-15",
+        "resources": [
+            {
+                "apiVersion": "[variables('apiVersion')]",
+                "type": "Microsoft.Network/virtualNetworks/subnets",
+                "subnets": [
+                    {
+                        "name": "[variables('subnet1').name]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet1').subnet1Prefix]"
+                        }
+                    },
+                    {
+                        "name": "[variables('subnet2').name]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet2').subnet2Prefix]"
+                        }
+                    },
+                    {
+                        "name": "[variables('subnet3').name]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet3').subnet3Prefix]"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
