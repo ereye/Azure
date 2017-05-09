@@ -20,31 +20,30 @@
         },
         "apiVersion": "2016-06-15"
     },
-        "resources": [
-            {
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.Network/virtualNetworks/subnets",
-                "subnets": [
-                    {
-                        "name": "[variables('subnet1').name]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet1').subnet1Prefix]"
-                        }
-                    },
-                    {
-                        "name": "[variables('subnet2').name]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet2').subnet2Prefix]"
-                        }
-                    },
-                    {
-                        "name": "[variables('subnet3').name]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet3').subnet3Prefix]"
-                        }
+    "resources": [
+        {
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "subnets": [
+                {
+                    "name": "[variables('subnet1').name]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnet1').subnet1Prefix]"
                     }
-                ]
-            }
-        ]
-    }
+                },
+                {
+                    "name": "[variables('subnet2').name]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnet2').subnet2Prefix]"
+                    }
+                },
+                {
+                    "name": "[variables('subnet3').name]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnet3').subnet3Prefix]"
+                    }
+                }
+            ]
+        }
+    ]
 }
