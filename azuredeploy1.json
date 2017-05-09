@@ -42,6 +42,18 @@
                                 "access": "Allow",
                                 "priority": 110,
                                 "direction": "Inbound"
+                            },
+                            {
+                            "name": "ssh",
+                            "properties": {
+                                "protocol": "UDP",
+                                "sourcePortRange": "*",
+                                "destinationPortRange": "22",
+                                "sourceAddressPrefix": "*",
+                                "destinationAddressPrefix": "*",
+                                "access": "Deny",
+                                "priority": 110,
+                                "direction": "Inbound"
                             }
                         }
                     ]
@@ -51,3 +63,7 @@
  }
  ]
  
+
+
+
+
