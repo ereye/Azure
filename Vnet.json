@@ -25,7 +25,7 @@
         },
 
         {"apiVersion": "2015-01-01",
-      "name": "dbserverLinked",
+      "name": "subnets",
       "type": "Microsoft.Resources/deployments",
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', variables('vnet').name)]"
