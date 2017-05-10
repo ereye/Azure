@@ -1,69 +1,51 @@
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "networkSecurityGroups_name": {
             "defaultValue": "nsgs",
-            "type": "String"
+            "type": "string"
         },
         "variables": {
-        "apiVersion": "2015-06-15"
-},
-    },asdasdawe
-
- "resources" : [
- {
-                "type": "Microsoft.Network/networkSecurityGroups",
-                "name": "[parameters('networkSecurityGroups_name')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "location": "westeurope",
-                "properties": {
-                    "securityRules": [
-                        {
-                            "name": "web",
-                            "properties": {
-                                "protocol": "TCP",
-                                "sourcePortRange": "*",
-                                "destinationPortRange": "80",
-                                "sourceAddressPrefix": "*",
-                                "destinationAddressPrefix": "*",
-                                "access": "Allow",
-                                "priority": 100,
-                                "direction": "Inbound"
-                            }
-                        },
-                        {
-                            "name": "ssh",
-                            "properties": {
-                                "protocol": "TCP",
-                                "sourcePortRange": "*",
-                                "destinationPortRange": "22",
-                                "sourceAddressPrefix": "*",
-                                "destinationAddressPrefix": "*",
-                                "access": "Allow",
-                                "priority": 110,
-                                "direction": "Inbound"
-                            },
-                            {
-                            "name": "ssh",
-                            "properties": {
-                                "protocol": "UDP",
-                                "sourcePortRange": "*",
-                                "destinationPortRange": "22",
-                                "sourceAddressPrefix": "*",
-                                "destinationAddressPrefix": "*",
-                                "access": "Deny",
-                                "priority": 110,
-                                "direction": "Inbound"
-                            }
+            "apiVersion": "2015-06-15"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_name')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "location": "westeurope",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "web",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
                         }
-                    ]
-  
-                },
-                "dependsOn": []
- }
- ]
- 
-
-
-
-
+                    },
+                    {
+                        "name": "ssh",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 110,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        }
+    ]
+  }
